@@ -37,9 +37,19 @@ let elements2D = [ [ 43, 57, 92, 91, 9, 40, 57, 83 ],
 console.log(elements2D)
 
 let peakFind2D = (arr) => {
-    let mid = Math.floor((arr[0].length) / 2);
+    
+    if (arr.length < 0) {
+        return; // Array is empty
+    }
+    if (len(arr) !== len(arr[0].length)) {
+        return; // Dimensions are not equal
+    }
+
+    let mid = Math.floor((arr[0].length) / 2); // Gets the middle column of the supply array
     let max = arr[0][mid]
     let maxRow = 0;
+
+    // Finds the maximum element of the column
     for(let i = 1; i < arr.length; i++) {
         if (max < arr[i][mid]) {
             max = arr[i][mid]
@@ -47,6 +57,7 @@ let peakFind2D = (arr) => {
         }
     }
 
+    // Returns the maximum element of the row 
     if (arr[0].length == 1) {
         return max
     }
